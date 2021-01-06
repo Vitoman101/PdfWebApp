@@ -12,7 +12,7 @@
 
     <!-- particles.js container -->
     <div id="particles-js"></div>
-    <section class="mt-5">
+    <section class="pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-auto mx-auto bg-white text-center">
