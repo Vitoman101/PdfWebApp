@@ -57,3 +57,12 @@ C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.Core
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CopyComplete
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.pdb
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\AdvancedStringBuilder.dll
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\JavaScriptEngineSwitcher.Core.dll
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\JSPool.dll
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Newtonsoft.Json.dll
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\AdvancedStringBuilder.xml
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\JavaScriptEngineSwitcher.Core.xml
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\JSPool.xml
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Newtonsoft.Json.xml
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll

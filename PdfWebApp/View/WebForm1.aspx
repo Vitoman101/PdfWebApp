@@ -8,21 +8,20 @@
     <link rel="stylesheet" href="../Content/bootstrap.css" />
     <link rel="stylesheet" href="StyleSheet.css" />
 </head>
-<body class="bg-danger">
+<body>
     <section id="logo">
         <div class="container">
             <div class="row">
-                <div class="col-auto mx-auto bg-light text-center">
+                <div class="col-auto mx-auto text-center">
                     <img id="logo-base" src="src/logo-01-1.png" class="img-fluid" />
                     <h1 class="text-danger">PDF COMPARER</h1>
                 </div>
             </div>
         </div>
     </section>
-    <hr />
     <section id="form" class="mt-5">
         <div class="container">
-            <div class="row bg-light">
+            <div class="row">
                 <div class="col-6 px-5 py-3">
                     <form>
                         <h3>Prvi PDF</h3>
@@ -110,7 +109,7 @@
                 <div class="col-12 text-center py-3">
                     <form>
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="compareAll">
+                            <input type="checkbox" class="form-check-input" id="compareAll"/>
                             <label class="form-check-label" for="compareAll">Poredi sve lekcije</label>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -130,5 +129,6 @@
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Scripts/particles.min.js"></script>
 </body>
 </html>
