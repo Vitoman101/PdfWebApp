@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm2.aspx.cs" Inherits="PdfWebApp.View.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="WebForm2.aspx.cs" Inherits="PdfWebApp.View.WebForm2" %>
 
 <!DOCTYPE html>
 
@@ -22,14 +22,23 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form method="post" action="#" id="#">
+                    <form runat="server" method="post" enctype="multipart/form-data" action="WebForm2.aspx" id="form1">
                         <div class="form-group files">
                             <label>Upload Your File </label>
-                            <input type="file" class="form-control" multiple="">
+                            <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
+                        </div>
+                        <asp:Button class="btn btn-primary" runat="server" ID="uploadedFile" Text="Upload" OnClick="uploadFile_Click" />
+                        <div>
+                            <asp:Label ID="listofuploadedfiles" runat="server" />
+                        </div>
+                        <div>
+                            <asp:Label ID="lblError" class="text-danger" runat="server" />
                         </div>
                     </form>
                 </div>
             </div>
+
+
         </div>
     </section>
 
@@ -113,14 +122,14 @@
                 "detect_on": "canvas",
                 "events": {
                     "onhover": {
-                        "enable": true,
+                        "enable": false,
                         "mode": "repulse"
                     },
                     "onclick": {
-                        "enable": true,
+                        "enable": false,
                         "mode": "push"
                     },
-                    "resize": true
+                    "resize": false
                 },
                 "modes": {
                     "grab": {
@@ -150,23 +159,6 @@
             },
             "retina_detect": true
         });
-        var count_particles, stats, update;
-        stats = new Stats;
-        stats.setMode(0);
-        stats.domElement.style.position = 'absolute';
-        stats.domElement.style.left = '0px';
-        stats.domElement.style.top = '0px';
-        document.body.appendChild(stats.domElement);
-        count_particles = document.querySelector('.js-count-particles');
-        update = function () {
-            stats.begin();
-            stats.end();
-            if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-                count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-            }
-            requestAnimationFrame(update);
-        };
-        requestAnimationFrame(update);;
     </script>
 
 </body>

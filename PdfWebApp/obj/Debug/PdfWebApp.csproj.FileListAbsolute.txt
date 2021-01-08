@@ -53,7 +53,6 @@ C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\roslyn\VBCSCompiler.exe.con
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csprojAssemblyReference.cache
-C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CoreCompileInputs.cache
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CopyComplete
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.pdb
