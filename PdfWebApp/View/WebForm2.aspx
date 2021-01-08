@@ -25,9 +25,10 @@
                     <form runat="server" method="post" enctype="multipart/form-data" action="WebForm2.aspx" id="form1">
                         <div class="form-group files">
                             <label>Upload Your File </label>
-                            <asp:FileUpload runat="server" ID="UploadImages" AllowMultiple="true" />
+                            <asp:FileUpload runat="server" ID="UploadPDFs" AllowMultiple="true" />
                         </div>
                         <asp:Button class="btn btn-primary" runat="server" ID="uploadedFile" Text="Upload" OnClick="uploadFile_Click" />
+                        <asp:Button class="btn btn-danger" runat="server" ID="buttonReset" OnClick="btnReset_Click" Text="Reset" />
                         <div>
                             <asp:Label ID="listofuploadedfiles" runat="server" />
                         </div>
@@ -37,9 +38,6 @@
                     </form>
                 </div>
             </div>
-
-
-        </div>
     </section>
 
 
@@ -49,6 +47,12 @@
     <script src="../Scripts/particles.min.js"></script>
 
     <script>
+
+        //only pdf files by default
+        $(document).ready(function () {
+            document.getElementById("<%=UploadPDFs.ClientID %>").setAttribute('accept', 'application/pdf');
+        })
+
         particlesJS("particles-js", {
             "particles": {
                 "number": {
