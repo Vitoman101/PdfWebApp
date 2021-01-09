@@ -18,8 +18,12 @@
                 <div class="col-auto mx-auto bg-white text-center">
                     <img id="logo-base" src="src/logo-01-1.png" class="img-fluid" />
                     <h1 class="text-danger">PDF COMPARER</h1>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Upustvo za koristenje
+                    </button>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <form runat="server" method="post" enctype="multipart/form-data" action="WebForm2.aspx" id="form1">
@@ -28,6 +32,7 @@
                             <asp:FileUpload runat="server" ID="UploadPDFs" AllowMultiple="true" />
                         </div>
                         <asp:Button class="btn btn-primary" runat="server" ID="uploadedFile" Text="Upload" OnClick="uploadFile_Click" />
+                        <asp:Button class="btn btn-warning" runat="server" ID="buttonCalculate" OnClick="calculate_Click" Text="Calculate" />
                         <asp:Button class="btn btn-danger" runat="server" ID="buttonReset" OnClick="btnReset_Click" Text="Reset" />
                         <div>
                             <asp:Label ID="listofuploadedfiles" runat="server" />
@@ -37,8 +42,50 @@
                         </div>
                     </form>
                 </div>
+                <div class="col-md-12 pt-3 text-center">
+                    <div class="progress">
+                        <div runat="server" id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <p runat="server" id="statusBar"></p>
+                    <h1 runat="server" class="text-primary" id="result"></h1>
+                </div>
             </div>
+        </div>
     </section>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Upustvo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Odaberite dva pdf fajla koja zelite da uporedite. Prvo odaberite jedan, pa kliknite dugme UPLOAD, a zatim odaberite drugi i opet kliknite UPLOAD.<br />
+                    Ako ste dobro uradili ispod dugmeta ce da pokaze da su dva fajla uploadovana.<br />
+                    Nakon sto su fajlovi uploadovani mozete da pritisnete CALCULATE zuto dugme i pricekajte dok ne dobijete rezultat koji ce biti ispisan na dnu ekrana plavom bojom.<br />
+                    Kada ste gotovi, pritisnite crveno dugme RESET da bi se fajlovi obrisali sa servera.<br />
+
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="float-left">
+                            <p class="lead">Autor: Viktor Lekic</p>
+                        </div>
+                        <div class="float-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="../Scripts/jquery-3.0.0.min.js"></script>
@@ -133,7 +180,7 @@
                         "enable": false,
                         "mode": "push"
                     },
-                    "resize": false
+                    "resize": true
                 },
                 "modes": {
                     "grab": {
