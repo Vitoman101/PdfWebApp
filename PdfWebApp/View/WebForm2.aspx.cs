@@ -15,13 +15,22 @@ namespace PdfWebApp.View
         {
 
             DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/Files/"));
-
-            foreach (FileInfo file in di.GetFiles())
+            try
             {
-                file.Delete();
+                foreach (FileInfo file in di.GetFiles())
+                {
+                    System.GC.Collect();
+                    System.GC.WaitForPendingFinalizers();
+                    file.Delete();
+                }
+                Response.Redirect("WebForm2.aspx");
+            } catch (Exception ex)
+            {
+                lblError.Text = ex.Message + " - please try again.";
             }
+            
 
-            Response.Redirect("WebForm2.aspx");
+            
         }
         protected void uploadFile_Click(object sender, System.EventArgs e)
         {
