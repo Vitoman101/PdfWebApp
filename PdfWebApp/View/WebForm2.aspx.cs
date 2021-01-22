@@ -58,9 +58,10 @@ namespace PdfWebApp.View
 
                         if (File.Exists(strFilePath))
                         {
-                            string duplicate = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + "(1).pdf";
+                            string duplicate = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + DateTime.Now.ToString("ddMMyyyy_HH_mm_ss") +".pdf";
                             uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, duplicate));
                             listofuploadedfiles.Text += String.Format("{0}<br />", duplicate);
+                            add_viewState(System.IO.Path.Combine(strFolder, duplicate));
                         }
                         else if (extension != ".pdf")
                         {
@@ -70,6 +71,7 @@ namespace PdfWebApp.View
                         {
                             uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, uploadedFile.FileName));
                             listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
+                            add_viewState(System.IO.Path.Combine(System.IO.Path.Combine(strFolder, uploadedFile.FileName)));
                         }
                     }
                 }
@@ -88,10 +90,11 @@ namespace PdfWebApp.View
                 {
                     statusBar.InnerHtml = "Citanje prvog fajla";
                     progressBar.Style["width"] = "20%";
-                    var first = reader.uniqueWords(list[0]);
+                    var first = reader.uniqueWords(ViewState["first"].ToString());
                     statusBar.InnerText = "Citanje drrugog fajla";
                     progressBar.Style["width"] = "40%";
-                    var second = reader.uniqueWords(list[1]);
+                    var second = reader.uniqueWords(ViewState["second"].ToString());
+                    lblError.Text = ViewState["first"].ToString() + " " + ViewState["second"].ToString();
 
                     statusBar.InnerText = "Uklanjanje nepotrebnih reci";
                     progressBar.Style["width"] = "60%";
@@ -115,6 +118,27 @@ namespace PdfWebApp.View
             {
                 lblError.Text = ex.Message;
             }
+        }
+
+        protected void add_viewState(string fileName)
+        {
+            if(ViewState["first"] != null && ViewState["second"] != null)
+            {
+                ViewState.Clear();
+                ViewState["first"] = fileName;
+            } 
+            else if(ViewState["first"] != null)
+            {
+                ViewState["second"] = fileName;
+            } else
+            {
+                ViewState["first"] = fileName;
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

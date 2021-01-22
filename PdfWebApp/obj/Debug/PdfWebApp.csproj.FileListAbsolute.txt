@@ -77,7 +77,6 @@ C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Common.Logging.pdb
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\Common.Logging.xml
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\bin\ru-ru\JavaScriptEngineSwitcher.Core.resources.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csprojAssemblyReference.cache
-C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CoreCompileInputs.cache
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CopyComplete
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.pdb
