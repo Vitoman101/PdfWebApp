@@ -67,11 +67,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Odaberite dva pdf fajla koja zelite da uporedite. Prvo odaberite jedan, pa kliknite dugme UPLOAD, a zatim odaberite drugi i opet kliknite UPLOAD.<br />
-                    Ako ste dobro uradili ispod dugmeta ce da pokaze da su dva fajla uploadovana.<br />
-                    Nakon sto su fajlovi uploadovani mozete da pritisnete CALCULATE zuto dugme i pricekajte dok ne dobijete rezultat koji ce biti ispisan na dnu ekrana plavom bojom.<br />
-                    Kada ste gotovi, pritisnite crveno dugme RESET da bi se fajlovi obrisali sa servera.<br />
-
+                    Kolikom na upload ili drag and drop postavite dva fajla koja želite da uporedite. Nakon što odaberete fajlove, kliknite <b>Upload</b> i kada napiše da je uploadovano onda kliknite dugme
+                    <b>Calculate</b>. Sačekajte rezultat, bit ce ispisan na dnu ekrana u obliku broja koji predstavlja <b>RAZLIKU</b> u procentima između dva dokumenta. <br />Aplikacija nece dozvoliti da više 
+                    od dva dokumenta istovremeno uploadujete tako da uploadujte jedan po jedan ili maksimum dva odjednom. <br />Ukoliko ste greškom uploadovali pogrešan fajl, kliknite <b>Reset</b> i fajl ce biti
+                    obrisan sa servera.
+                    <br />Ukoliko su fajlovi istog naziva potrebno je da unesete jedan fajl prvo pa kliknete <b>UPLOAD</b>
+                    pa onda odaberete drugi fajl pa opet kliknete <b>UPLOAD</b>. Zatim sve isto kao i pre, calculate dugme i cekate resenje.
+                    <br /><br />
+                    <small class="float-right">Verzija: 1.0</small>
                 </div>
                 <div class="modal-footer">
                     <div class="col">

@@ -80,3 +80,4 @@ C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csprojAssem
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CopyComplete
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.dll
 C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.pdb
+C:\Users\Viktor\source\repos\PdfWebApp\PdfWebApp\obj\Debug\PdfWebApp.csproj.CoreCompileInputs.cache

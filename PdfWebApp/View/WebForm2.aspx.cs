@@ -51,29 +51,40 @@ namespace PdfWebApp.View
                 } 
                 else
                 {
-                    foreach (HttpPostedFile uploadedFile in UploadPDFs.PostedFiles)
+                    try
                     {
-                        strFilePath = strFolder + uploadedFile.FileName;
-                        string extension = System.IO.Path.GetExtension(uploadedFile.FileName);
+                        if (isViewStateValid())
+                        {
+                            listofuploadedfiles.Text = "";
+                        }
+                        foreach (HttpPostedFile uploadedFile in UploadPDFs.PostedFiles)
+                        {
+                            strFilePath = strFolder + uploadedFile.FileName;
+                            string extension = System.IO.Path.GetExtension(uploadedFile.FileName);
 
-                        if (File.Exists(strFilePath))
-                        {
-                            string duplicate = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + DateTime.Now.ToString("ddMMyyyy_HH_mm_ss") +".pdf";
-                            uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, duplicate));
-                            listofuploadedfiles.Text += String.Format("{0}<br />", duplicate);
-                            add_viewState(System.IO.Path.Combine(strFolder, duplicate));
+                            if (File.Exists(strFilePath))
+                            {
+                                string duplicate = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + DateTime.Now.ToString("ddMMyyyy-HH-mm-ss") + ".pdf";
+                                uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, duplicate));
+                                listofuploadedfiles.Text += String.Format("{0}<br />", duplicate);
+                                add_viewState(System.IO.Path.Combine(strFolder, duplicate));
+                            }
+                            else if (extension != ".pdf")
+                            {
+                                lblError.Text += String.Format("{0}<br /> ", uploadedFile.FileName + " file is not .pdf format.");
+                            }
+                            else
+                            {
+                                uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, uploadedFile.FileName));
+                                listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
+                                add_viewState(System.IO.Path.Combine(System.IO.Path.Combine(strFolder, uploadedFile.FileName)));
+                            }
                         }
-                        else if (extension != ".pdf")
-                        {
-                            lblError.Text += String.Format("{0}<br /> ", uploadedFile.FileName + " file is not .pdf format.");
-                        }
-                        else
-                        {
-                            uploadedFile.SaveAs(System.IO.Path.Combine(strFolder, uploadedFile.FileName));
-                            listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
-                            add_viewState(System.IO.Path.Combine(System.IO.Path.Combine(strFolder, uploadedFile.FileName)));
-                        }
+                    } catch (Exception ex)
+                    {
+                        lblError.Text = ex.Message;
                     }
+                    
                 }
                 
             }
@@ -86,32 +97,37 @@ namespace PdfWebApp.View
             try
             {
                 bool isEmpty = !list.Any();
-                if (!isEmpty)
+                if (isViewStateValid())
                 {
-                    statusBar.InnerHtml = "Citanje prvog fajla";
-                    progressBar.Style["width"] = "20%";
-                    var first = reader.uniqueWords(ViewState["first"].ToString());
-                    statusBar.InnerText = "Citanje drrugog fajla";
-                    progressBar.Style["width"] = "40%";
-                    var second = reader.uniqueWords(ViewState["second"].ToString());
-                    lblError.Text = ViewState["first"].ToString() + " " + ViewState["second"].ToString();
+                    if (!isEmpty)
+                    {
+                        statusBar.InnerHtml = "Citanje prvog fajla";
+                        progressBar.Style["width"] = "20%";
+                        var first = reader.uniqueWords(ViewState["first"].ToString());
+                        statusBar.InnerText = "Citanje drrugog fajla";
+                        progressBar.Style["width"] = "40%";
+                        var second = reader.uniqueWords(ViewState["second"].ToString());
 
-                    statusBar.InnerText = "Uklanjanje nepotrebnih reci";
-                    progressBar.Style["width"] = "60%";
-                    first = Reader.removeTopN(first, 10, 15);
-                    second = Reader.removeTopN(second, 10, 15);
+                        statusBar.InnerText = "Uklanjanje nepotrebnih reci";
+                        progressBar.Style["width"] = "60%";
+                        first = Reader.removeTopN(first, 10, 15);
+                        second = Reader.removeTopN(second, 10, 15);
 
-                    statusBar.InnerText = "Zavrsno merenje";
-                    progressBar.Style["width"] = "90%";
-                    var distance = LevenshteinDistance.distanceMeasure(first, second, 2);
-                    distance = ((1 - distance) * 100);
-                    statusBar.InnerText = "Gotovo";
-                    progressBar.Style["width"] = "100%";
-                    result.InnerText = distance.ToString();
-                }
-                else
+                        statusBar.InnerText = "Zavrsno merenje";
+                        progressBar.Style["width"] = "90%";
+                        var distance = LevenshteinDistance.distanceMeasure(first, second, 2);
+                        distance = ((1 - distance) * 100);
+                        statusBar.InnerText = "Gotovo";
+                        progressBar.Style["width"] = "100%";
+                        result.InnerText = distance.ToString();
+                    }
+                    else
+                    {
+                        lblError.Text = "Fajl nije pronađen na serveru";
+                    }
+                } else
                 {
-                    lblError.Text = "Files not found on server";
+                    lblError.Text = "Molimo vas uploadujte još jedan fajl";
                 }
             }
             catch(Exception ex)
@@ -134,6 +150,19 @@ namespace PdfWebApp.View
             {
                 ViewState["first"] = fileName;
             }
+        }
+
+        protected bool isViewStateValid()
+        {
+            if(ViewState["first"] == null)
+            {
+                return false;
+            } 
+            else if (ViewState["second"] == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         protected void Page_Load(object sender, EventArgs e)
