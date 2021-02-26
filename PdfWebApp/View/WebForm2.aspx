@@ -21,6 +21,9 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Upustvo za koristenje
                     </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+                        Kako algoritam radi?
+                    </button>
                 </div>
             </div>
 
@@ -68,13 +71,53 @@
                 </div>
                 <div class="modal-body">
                     Kolikom na upload ili drag and drop postavite dva fajla koja želite da uporedite. Nakon što odaberete fajlove, kliknite <b>Upload</b> i kada napiše da je uploadovano onda kliknite dugme
-                    <b>Calculate</b>. Sačekajte rezultat, bit ce ispisan na dnu ekrana u obliku broja koji predstavlja <b>RAZLIKU</b> u procentima između dva dokumenta. <br />Aplikacija nece dozvoliti da više 
-                    od dva dokumenta istovremeno uploadujete tako da uploadujte jedan po jedan ili maksimum dva odjednom. <br />Ukoliko ste greškom uploadovali pogrešan fajl, kliknite <b>Reset</b> i fajl ce biti
+                    <b>Calculate</b>. Sačekajte rezultat, bit ce ispisan na dnu ekrana u obliku broja koji predstavlja <b>RAZLIKU</b> u procentima između dva dokumenta.
+                    <br />
+                    Aplikacija nece dozvoliti da više 
+                    od dva dokumenta istovremeno uploadujete tako da uploadujte jedan po jedan ili maksimum dva odjednom.
+                    <br />
+                    Ukoliko ste greškom uploadovali pogrešan fajl, kliknite <b>Reset</b> i fajl ce biti
                     obrisan sa servera.
-                    <br />Ukoliko su fajlovi istog naziva potrebno je da unesete jedan fajl prvo pa kliknete <b>UPLOAD</b>
+                    <br />
+                    Ukoliko su fajlovi istog naziva potrebno je da unesete jedan fajl prvo pa kliknete <b>UPLOAD</b>
                     pa onda odaberete drugi fajl pa opet kliknete <b>UPLOAD</b>. Zatim sve isto kao i pre, calculate dugme i cekate resenje.
-                    <br /><br />
+                    <br />
+                    <br />
                     <small class="float-right">Verzija: 1.0</small>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <div class="float-left">
+                            <p class="lead">Autor: Viktor Lekic</p>
+                        </div>
+                        <div class="float-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Algoritam</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Prvo se iz PDF dokumenta svake lekcije izdvaja sav tekst i spaja u jedan tekstualni dokument.  
+                    Zatim se tekst razdvaja na reči (po razmaku) i uklanjaju se specijalni karakteri (znakovi interpunkcije, crtice).  
+                    Sledeći korak je izračunavanje frekvencije svake reči u dokumentu, pa njihovo sortiranje i brisanje određenog broja onih koje se najviše puta pojavljuju 
+                    (reči koje ne nose nikakvo značenje, na primer veznici, rečce, tj. generalno nepromenljive reči).  Ovaj postupak se vrši za trenutnu i prošlogodišnju verziju 
+                    lekcija predmeta i na taj način se dobijaju dva vektora frekvencija reči. Rastojanje između ta dva vektora se posmatra kao razlika između dva dokumenta.  
+                    Zatim se dobijena vrednost rastojanja skalira na interval od 0 do 100, što predstavlja procenat izmene u novoj verziji materijala. 
+                    Treba imati u vidu da na ovakav način računanja razlike ne utiču zamene mesta lekcijama u predmetu, kao ni pomeranje objekata, sekcija ili rečenica u okviru lekcije. 
+                    U promene se računa samo dodavanje novog sadržaja ili brisanje postojećeg. 
                 </div>
                 <div class="modal-footer">
                     <div class="col">
